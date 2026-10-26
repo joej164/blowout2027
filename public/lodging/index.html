@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lodging Options &mdash; Snow Blowout 2027</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="snowfall" aria-hidden="true">
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+  </div>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <a class="brand" href="/">Snow Blowout 2027</a>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/lodging/" aria-current="page">Lodging Options</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <header class="page-header">
+      <h1>Lodging<br>Options</h1>
+      <span class="sticker" style="margin-top:0.75rem;">Jan 14&ndash;18 &middot; 4 Nights</span>
+    </header>
+
+    <p class="page-intro">
+      We&rsquo;re comparing three lodging arrangements for our group of
+      <strong>9&ndash;10 guests</strong> in Sunriver, Oregon.
+      Two other groups already have houses reserved nearby:
+      <strong>Cameron&rsquo;s group at Todd&nbsp;#10</strong> (17701 Todd Lane)
+      and <strong>JR&rsquo;s group at Todd&nbsp;#11</strong> (17699 Todd Lane).
+    </p>
+
+    <!-- Tradeoffs summary -->
+    <section class="lodging-section">
+      <h2>The Tradeoffs</h2>
+      <ul>
+        <li><strong>Todd #1</strong> (~$300/person) &mdash; Need a second portable bed, or someone takes an upper bunk.
+          <em>(Upper bunk would be an exception to our current no-upper-bunks plan.)</em></li>
+        <li><strong>Sparks #5</strong> (~$350/person) &mdash; <strong>Where we stayed last year.</strong> Farther from Cameron and JR (about a 4-minute walk to Todd&nbsp;#10).</li>
+        <li><strong>Todd #1 + Todd #9</strong> (over $400/person) &mdash; More comfort and privacy, but costs more. Someone else needs to book Todd&nbsp;#9.</li>
+      </ul>
+      <p style="font-size:0.8rem; color:var(--ice-dim); margin-top:0.5rem;">
+        Rough planning budgets; final costs depend on insurance, fees, and cabin occupancy.
+      </p>
+    </section>
+
+    <!-- ==================== Comparison Table ==================== -->
+    <section class="lodging-section">
+      <h2>At a Glance</h2>
+      <div class="comparison-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th scope="col">Feature</th>
+              <th scope="col">Todd #1</th>
+              <th scope="col">Sparks #5</th>
+              <th scope="col">Todd #1 + #9</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Approx budget per person</td>
+              <td class="highlight-col">~$300</td>
+              <td>~$350</td>
+              <td>Over $400</td>
+            </tr>
+            <tr>
+              <td>Stayed here last year</td>
+              <td>&mdash;</td>
+              <td class="highlight-col"><strong>Yes &mdash; our 2026 house</strong></td>
+              <td>&mdash;</td>
+            </tr>
+            <tr>
+              <td>Bedrooms</td>
+              <td>4</td>
+              <td>5</td>
+              <td class="highlight-col">7</td>
+            </tr>
+            <tr>
+              <td>Bathrooms</td>
+              <td>4</td>
+              <td>4</td>
+              <td class="highlight-col">7</td>
+            </tr>
+            <tr>
+              <td>Hot tubs</td>
+              <td>1</td>
+              <td>1</td>
+              <td class="highlight-col">2</td>
+            </tr>
+            <tr>
+              <td>Proximity to Todd #10</td>
+              <td class="highlight-col">~1 min walk</td>
+              <td>~4 min walk</td>
+              <td class="highlight-col">Todd Lane</td>
+            </tr>
+            <tr>
+              <td>Sleeping comfort</td>
+              <td>Tight</td>
+              <td>Good</td>
+              <td class="highlight-col">Excellent</td>
+            </tr>
+            <tr>
+              <td>Extra portable beds</td>
+              <td>2 total (have 1)</td>
+              <td>1 total (have it)</td>
+              <td class="highlight-col">None</td>
+            </tr>
+            <tr>
+              <td>Booked?</td>
+              <td>No</td>
+              <td>No</td>
+              <td>No</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:0.8rem; color:var(--ice-dim); margin-top:0.5rem; text-align:center;">
+        Rough planning budgets; final costs depend on insurance, fees, and cabin occupancy.
+      </p>
+    </section>
+
+    <!-- ==================== Map ==================== -->
+    <section id="map-section" class="lodging-section">
+      <h2>Location Map</h2>
+      <img id="lodging-map" src="/images/lodging-map-highlighted.png" width="1100" height="700" alt="Sunriver map: Sparks #5 is north of the Todd Lane cluster. Todd #1, Todd #9, Cameron’s Todd #10, and JR’s Todd #11 are labeled near Circle 4." loading="lazy">
+      <div class="map-legend">
+        <span class="map-legend-item"><span class="map-legend-swatch map-legend-swatch--lime" aria-hidden="true"></span> Our options</span>
+        <span class="map-legend-item"><span class="map-legend-swatch map-legend-swatch--coral" aria-hidden="true"></span> Reserved group houses</span>
+      </div>
+      <p class="map-note">Highlighted house numbers on the map; not walking routes.</p>
+    </section>
+
+    <!-- Disclaimer -->
+    <div class="disclaimer">
+      <strong>Planning estimates, not confirmed bookings.</strong>
+      Per-person amounts are rough budgets; final costs depend on insurance, fees, and cabin occupancy.
+      Sleeping arrangements are proposed and subject to verification.
+      No properties have been booked for our group yet.
+    </div>
+
+    <!-- ==================== Guests ==================== -->
+    <section class="lodging-section">
+      <h2>Our Group</h2>
+      <div class="lodging-two-col">
+        <div>
+          <h3>Guest List</h3>
+          <ol class="guest-list">
+            <li>Joe</li>
+            <li>Torin</li>
+            <li>Jason P.</li>
+            <li>Jason C.</li>
+            <li>Brock S.</li>
+            <li>Adrianne</li>
+            <li>Aron P.</li>
+            <li>Adam F.</li>
+            <li>Tashia <span class="tag tag--coral">tentative</span></li>
+            <li>Jason S.</li>
+          </ol>
+        </div>
+        <div>
+          <h3>Sleeping Notes</h3>
+          <ul class="pref-list">
+            <li>Brock S. &amp; Adrianne share a bed</li>
+            <li>Adam F. &amp; Tashia share a bed</li>
+            <li>Joe &amp; Torin can share a room, but need <strong>separate beds</strong>. They do not need to stay in the same room.</li>
+            <li>Everyone else needs their own sleeping surface</li>
+            <li><strong>No upper bunks</strong> &mdash; lower bunks are OK</li>
+            <li>Joe owns a portable bed that can be brought along</li>
+          </ul>
+          <p class="pref-note">
+            With 10 guests we need <strong>8 sleeping surfaces</strong> (two couples share).
+            If Tashia is absent (9 guests), we still need <strong>8 surfaces</strong>
+            (Adam F. then needs his own bed).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== Priorities ==================== -->
+    <section class="lodging-section">
+      <h2>Our Priorities</h2>
+      <ol class="priority-list">
+        <li><strong>Everyone has a comfortable place to sleep</strong></li>
+        <li><strong>Stay as close as possible to Todd #10 &amp; #11</strong> &mdash; near Cameron &amp; JR</li>
+        <li><strong>Enough space and privacy for everyone</strong></li>
+        <li><strong>Keep costs reasonable</strong> &mdash; comfort and proximity matter more than price</li>
+      </ol>
+      <p style="margin-top:0.5rem; font-size:0.85rem; color:var(--ice-dim);">
+        Equal cost sharing regardless of nights stayed: Options&nbsp;1&nbsp;&amp;&nbsp;2, all guests split the single rental equally.
+        Option&nbsp;3, each cabin&rsquo;s occupants split their own cabin&rsquo;s rent equally.
+      </p>
+    </section>
+
+    <!-- ==================== Option 1: Todd #1 ==================== -->
+    <section class="lodging-section lodging-option">
+      <div class="option-header">
+        <div class="option-photo">
+          <span class="card-photo-label">Photo coming soon</span>
+        </div>
+        <div class="option-title">
+          <span class="tag tag--lime">Option 1</span>
+          <h2>Todd #1</h2>
+          <p class="option-tagline">Best proximity / lowest cost</p>
+          <p class="option-location">Todd Lane &bull; ~1 min walk to Todd #10</p>
+          <a href="https://www.benningtonsunriver.com/properties/todd-lane-1"
+             target="_blank" rel="noopener">View listing &rarr;</a>
+        </div>
+      </div>
+
+      <div class="lodging-two-col">
+        <div>
+          <h3>Property Details</h3>
+          <div class="stat-grid">
+            <div class="stat-pill"><span class="stat-pill-label">Bedrooms</span> <strong>4</strong></div>
+            <div class="stat-pill"><span class="stat-pill-label">Bathrooms</span> <strong>4</strong></div>
+            <div class="stat-pill"><span class="stat-pill-label">Sq Ft</span> <strong>~3,152</strong></div>
+            <div class="stat-pill"><span class="stat-pill-label">Hot Tub</span> <strong>Private</strong></div>
+          </div>
+
+          <h3>Budget Estimate</h3>
+          <div class="price-box">
+            <div class="price-main">~$300/person</div>
+          </div>
+          <p class="caveat-note">
+            May not include all taxes and fees.
+          </p>
+        </div>
+
+        <div>
+          <h3>Existing Beds</h3>
+          <ul class="bed-list">
+            <li>2 kings</li>
+            <li>1 queen</li>
+            <li>2 lower bunk beds <span class="caveat">(upper bunks excluded)</span></li>
+            <li>1 loft daybed</li>
+          </ul>
+          <p style="font-size:0.85rem; color:var(--ice-dim); margin-top:0.5rem;">
+            <strong>6 usable surfaces.</strong>
+            With Joe&rsquo;s portable bed: 7.
+            For 8 needed, <strong>a second portable bed is required</strong>.
+            Space and permission for the second bed need verification.
+          </p>
+
+          <details class="allocation-details">
+            <summary>Proposed sleeping allocation</summary>
+            <ul class="alloc-list">
+              <li><strong>King:</strong> Brock S. + Adrianne</li>
+              <li><strong>King:</strong> Adam F. + Tashia</li>
+              <li><strong>Queen + portable:</strong> Joe + Torin</li>
+              <li><strong>Two lower bunks:</strong> Jason P. + Jason C.</li>
+              <li><strong>Loft daybed:</strong> Aron P.</li>
+              <li><strong>Additional portable bed:</strong> Jason S.</li>
+            </ul>
+            <p class="alloc-caveat">Proposed &mdash; subject to bedroom layouts and portable-bed space verification.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="lodging-two-col" style="margin-top:1rem;">
+        <div>
+          <h3>Pros</h3>
+          <ul class="pro-list">
+            <li>Extremely close to the other groups</li>
+            <li>Plenty of common space</li>
+            <li>Private hot tub</li>
+            <li>Least expensive option</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Cons</h3>
+          <ul class="con-list">
+            <li>Requires two portable beds total</li>
+            <li>Sleeping arrangements are tight</li>
+            <li>Need to verify floor space and permission for portable beds</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="option-status">
+        <strong>Status:</strong> Not booked. May not include all taxes and fees.
+      </div>
+    </section>
+
+    <!-- ==================== Option 2: Sparks #5 ==================== -->
+    <section class="lodging-section lodging-option">
+      <div class="option-header">
+        <div class="option-photo">
+          <span class="card-photo-label">Photo coming soon</span>
+        </div>
+        <div class="option-title">
+          <span class="tag tag--lime">Option 2</span>
+          <h2>Sparks #5</h2>
+          <span class="tag tag--lime">Where we stayed last year</span>
+          <p class="option-tagline">Best single-house sleeping arrangement</p>
+          <p class="option-location">~0.2 miles / ~4 min walk to Todd #10</p>
+          <a href="https://www.benningtonsunriver.com/properties/sparks-5"
+             target="_blank" rel="noopener">View listing &rarr;</a>
+        </div>
+      </div>
+
+      <div class="lodging-two-col">
+        <div>
+          <h3>Property Details</h3>
+          <div class="stat-grid">
+            <div class="stat-pill"><span class="stat-pill-label">Bedrooms</span> <strong>5</strong></div>
+            <div class="stat-pill"><span class="stat-pill-label">Bathrooms</span> <strong>4</strong></div>
+            <div class="stat-pill"><span class="stat-pill-label">Sq Ft</span> <strong>~3,243</strong></div>
+            <div class="stat-pill"><span class="stat-pill-label">Hot Tub</span> <strong>Private</strong></div>
+          </div>
+
+          <h3>Budget Estimate</h3>
+          <div class="price-box">
+            <div class="price-main">~$350/person</div>
+          </div>
+          <p class="caveat-note">
+            Verify price for our actual 9&ndash;10 group size.
+          </p>
+        </div>
+
+        <div>
+          <h3>Sleeping Arrangement</h3>
+          <p style="font-size:0.85rem; color:var(--ice-dim); margin-bottom:0.5rem;">
+            All 10 people accommodated without upper bunks.
+          </p>
+          <details class="allocation-details" open>
+            <summary>Proposed sleeping allocation</summary>
+            <ul class="alloc-list">
+              <li><strong>King:</strong> Brock S. + Adrianne</li>
+              <li><strong>King:</strong> Adam F. + Tashia</li>
+              <li><strong>Queen + portable:</strong> Joe + Torin</li>
+              <li><strong>Two twins:</strong> Jason P. + Jason C.</li>
+              <li><strong>Two other twins:</strong> Aron P. + Jason S.</li>
+            </ul>
+            <p class="alloc-caveat">Proposed &mdash; subject to bedroom layouts and portable-bed placement confirmation.</p>
+          </details>
+          <p style="font-size:0.85rem; color:var(--ice-dim); margin-top:0.75rem;">
+            <strong>Note:</strong> One twin bedroom is accessed through a king bedroom,
+            which may reduce privacy.
+          </p>
+        </div>
+      </div>
+
+      <div class="lodging-two-col" style="margin-top:1rem;">
+        <div>
+          <h3>Pros</h3>
+          <ul class="pro-list">
+            <li>Everybody has a bed</li>
+            <li>Five bedrooms</li>
+            <li>Good gathering space</li>
+            <li>Private hot tub</li>
+            <li>Familiar property &mdash; we stayed here last year (2026)</li>
+            <li>Only one rental to manage</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Cons</h3>
+          <ul class="con-list">
+            <li>Farther from the Todd Lane houses</li>
+            <li>One twin bedroom accessed through a king bedroom (less privacy)</li>
+            <li>Need to confirm where Joe&rsquo;s portable bed fits</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="option-status">
+        <strong>Status:</strong> Not booked. Verify price for 9&ndash;10 guests.
+      </div>
+    </section>
+
+    <!-- ==================== Option 3: Todd #1 + Todd #9 ==================== -->
+    <section class="lodging-section lodging-option option--highlight">
+      <div class="option-header">
+        <div class="option-photo">
+          <span class="card-photo-label">Photo coming soon</span>
+        </div>
+        <div class="option-title">
+          <span class="tag tag--lime">Option 3</span>
+          <h2>Todd #1 + Todd #9</h2>
+          <p class="option-tagline">Best overall comfort and proximity</p>
+          <p class="option-location">Two houses on Todd Lane &bull; Near Todd #10 &amp; #11</p>
+        </div>
+      </div>
+
+      <p class="option-combo-intro">
+        Rent two houses on Todd Lane instead of squeezing everyone into one.
+        Joe and Torin stay in separate cabins&mdash;friends, not a couple&mdash;so
+        no portable bed is needed under this plan.
+        Each cabin&rsquo;s occupants split only their own cabin&rsquo;s rent equally.
+      </p>
+
+      <div class="lodging-two-col">
+        <div class="sub-property">
+          <h3>Todd #1 <span class="caveat">(5 occupants)</span></h3>
+          <div class="stat-grid">
+            <div class="stat-pill"><span class="stat-pill-label">Bedrooms</span> <strong>4</strong></div>
+            <div class="stat-pill"><span class="stat-pill-label">Bathrooms</span> <strong>4</strong></div>
+            <div class="stat-pill"><span class="stat-pill-label">Hot Tub</span> <strong>Private</strong></div>
+          </div>
+          <p style="font-size:0.85rem; color:var(--ice-dim);">
+            Four bedrooms plus loft daybed &bull; Separate sleeping surfaces &bull; No upper bunks
+          </p>
+          <p style="font-size:0.85rem; color:var(--ice-dim); margin-top:0.25rem;">
+            <strong>Occupants:</strong> Joe <em>or</em> Torin, Jason P., Jason C., Aron P., Jason S.
+          </p>
+          <a href="https://www.benningtonsunriver.com/properties/todd-lane-1"
+             target="_blank" rel="noopener" style="font-size:0.85rem;">View listing &rarr;</a>
+        </div>
+
+        <div class="sub-property">
+          <h3>Todd #9 <span class="caveat">(5 occupants)</span></h3>
+          <div class="stat-grid">
+            <div class="stat-pill"><span class="stat-pill-label">Bedrooms</span> <strong>3</strong></div>
+            <div class="stat-pill"><span class="stat-pill-label">Bathrooms</span> <strong>3</strong></div>
+            <div class="stat-pill"><span class="stat-pill-label">Hot Tub</span> <strong>Private</strong></div>
+          </div>
+          <p style="font-size:0.85rem; color:var(--ice-dim);">
+            Three queen beds &bull; Single-story property &bull; Located on Todd Lane
+          </p>
+          <p style="font-size:0.85rem; color:var(--ice-dim); margin-top:0.25rem;">
+            <strong>Occupants:</strong> Brock S. + Adrianne, Adam F. + Tashia
+            <span class="tag tag--coral">tentative</span>,
+            Joe <em>or</em> Torin (whichever not in Todd&nbsp;#1)
+          </p>
+          <a href="https://vacation-rentals.sunriverresort.com/vrp/unit/9_Todd_Lane-661-15"
+             target="_blank" rel="noopener" style="font-size:0.85rem;">View listing &rarr;</a>
+        </div>
+      </div>
+
+      <div class="combined-price-box">
+        <h3>Budget Estimate</h3>
+        <div class="price-box">
+          <div class="price-main">Over $400/person</div>
+        </div>
+        <p class="caveat-note" style="margin-top:0.5rem;">
+          Each cabin&rsquo;s occupants split their own cabin&rsquo;s rent.
+          Actual per-person cost differs by cabin and headcount; final costs not yet confirmed.
+        </p>
+      </div>
+
+      <!-- ====== Option 3 · Sleeping arrangements ======
+           To edit: update the occupant lists in the sub-cards above AND the allocations below together.
+      -->
+      <h3 style="margin-top:1.5rem;">Suggested Sleeping Arrangements</h3>
+      <p style="font-size:0.85rem; color:var(--ice-dim); margin-bottom:0.75rem;">
+        Joe and Torin in separate cabins. No upper bunks, no portable beds needed.
+      </p>
+      <div class="lodging-two-col">
+        <div>
+          <!-- Option 3 · Todd #1 allocation (5 occupants) -->
+          <details class="allocation-details" open>
+            <summary>Todd #1 &mdash; 5 guests</summary>
+            <ul class="alloc-list">
+              <li><strong>Bedroom:</strong> Joe <em>or</em> Torin</li>
+              <li><strong>Bedroom:</strong> Jason P.</li>
+              <li><strong>Bedroom:</strong> Jason C.</li>
+              <li><strong>Bedroom:</strong> Aron P.</li>
+              <li><strong>Loft daybed:</strong> Jason S.</li>
+            </ul>
+            <p class="alloc-caveat">Four bedrooms plus loft daybed. Exact bed assignments subject to bedroom layouts.</p>
+          </details>
+        </div>
+        <div>
+          <!-- Option 3 · Todd #9 allocation (5 occupants) -->
+          <details class="allocation-details" open>
+            <summary>Todd #9 &mdash; 5 guests</summary>
+            <ul class="alloc-list">
+              <li><strong>Queen:</strong> Brock S. + Adrianne</li>
+              <li><strong>Queen:</strong> Adam F. + Tashia <span class="tag tag--coral">tentative</span></li>
+              <li><strong>Queen:</strong> Joe <em>or</em> Torin (whichever not in Todd&nbsp;#1)</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+      <p class="alloc-caveat" style="margin-top:0.5rem;">
+        Proposed &mdash; not final assignments. Subject to bedroom layouts and guest confirmation.
+      </p>
+
+      <div class="lodging-two-col" style="margin-top:1rem;">
+        <div>
+          <h3>Pros</h3>
+          <ul class="pro-list">
+            <li>Two houses, seven bedrooms total</li>
+            <li>More privacy and personal space</li>
+            <li>Everyone stays on Todd Lane near Cameron&rsquo;s and JR&rsquo;s houses</li>
+            <li>No portable beds needed</li>
+            <li>Two hot tubs</li>
+            <li>Separate surfaces for every guest</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Cons</h3>
+          <ul class="con-list">
+            <li>Most expensive option overall</li>
+            <li>Two reservations to coordinate &mdash; someone else needs to book Todd&nbsp;#9</li>
+            <li>Group split across two houses</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="option-status">
+        <strong>Status:</strong> Neither house booked. Someone else needs to book Todd&nbsp;#9.
+        Need to verify both can be reserved together.
+      </div>
+    </section>
+
+    <!-- Final disclaimer -->
+    <div class="disclaimer">
+      <strong>Planning estimates only &mdash; not confirmed bookings.</strong>
+      Sleeping arrangements are proposed assignments subject to verification.
+      No properties have been booked for our group yet.
+    </div>
+
+    <div style="text-align:center; margin-top:2rem;">
+      <a class="cta" href="/">&larr; Back to Home</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    Snow Blowout 2027 &mdash; Sunriver, Oregon
+  </footer>
+</body>
+</html>
