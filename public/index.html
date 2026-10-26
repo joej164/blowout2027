@@ -23,7 +23,7 @@
     <a class="brand" href="/">Snow Blowout 2027</a>
     <ul>
       <li><a href="/" aria-current="page">Home</a></li>
-      <li><a href="/lodging/">Lodging Options</a></li>
+      <li><a href="/lodging/">Lodging</a></li>
     </ul>
   </nav>
 
@@ -36,7 +36,7 @@
     <header class="hero">
       <h1>Snow<br>Blowout<br><span class="year">2027!</span></h1>
       <p class="hero-tagline">
-        The annual friends getaway &mdash; Sunriver, Oregon, near Circle 4 Ranch &amp; Todd Lane.
+        The annual friends getaway &mdash; Sunriver, Oregon.
       </p>
       <span class="sticker sticker--tilt-right">Let&rsquo;s gooo</span>
     </header>
@@ -68,7 +68,7 @@
       <p>
         Snow Blowout is an annual winter getaway with friends. Pack your bags,
         grab your crew, and head to Sunriver for a long weekend of snow, laughs,
-        and questionable decisions. Our Sunriver base camp is still being picked.
+        and questionable decisions.
       </p>
     </section>
 
@@ -105,8 +105,8 @@
     <!-- Lodging link -->
     <section class="info-section" style="text-align:center;">
       <h2>Where Are We Staying?</h2>
-      <p>We&rsquo;re comparing a few rental options near the other groups.</p>
-      <a class="cta" href="/lodging/">View Lodging Options</a>
+      <p>Lodging details are password-protected.</p>
+      <a class="cta" href="/lodging/">View Lodging</a>
     </section>
   </main>
 
@@ -114,66 +114,7 @@
     Snow Blowout 2027 &mdash; Sunriver, Oregon
   </footer>
 
-  <script>
-    (function () {
-      /* ---- Countdown configuration ---- */
-      var EVENT_START = "2027-01-14T00:00:00-08:00"; // Pacific midnight, Thu Jan 14
-      var EVENT_END   = "2027-01-19T00:00:00-08:00"; // end of Mon Jan 18 (checkout day)
-      var LABEL_BEFORE = "Until Jan 14 \u00b7 Pacific time";
-      var MSG_DURING = "Snow Blowout is happening right now!";
-      var MSG_AFTER  = "Snow Blowout 2027 is a wrap — see you next year!";
-
-      var wrap = document.getElementById("countdown-wrap");
-      if (!wrap) return;
-
-      var startMs = new Date(EVENT_START).getTime();
-      var endMs   = new Date(EVENT_END).getTime();
-
-      function render() {
-        var now = Date.now();
-
-        if (now >= endMs) {
-          wrap.innerHTML = '<div class="countdown-message">' + MSG_AFTER + "</div>";
-          return false; // stop ticking
-        }
-
-        if (now >= startMs) {
-          wrap.innerHTML = '<div class="countdown-message">' + MSG_DURING + "</div>";
-          return true; // keep ticking so we transition to after-event
-        }
-
-        var diff = startMs - now;
-        var d = Math.floor(diff / 86400000);
-        var h = Math.floor((diff % 86400000) / 3600000);
-        var m = Math.floor((diff % 3600000) / 60000);
-        var s = Math.floor((diff % 60000) / 1000);
-
-        wrap.innerHTML =
-          '<p class="countdown-label">' + LABEL_BEFORE + "</p>" +
-          '<div class="countdown">' +
-            unit(d, "day")  +
-            unit(h, "hr")   +
-            unit(m, "min")  +
-            unit(s, "sec")  +
-          "</div>";
-        return true; // keep ticking
-      }
-
-      function unit(n, label) {
-        return (
-          '<div class="countdown-unit">' +
-            '<span class="num">' + n + "</span>" +
-            '<span class="lbl">' + label + (n !== 1 ? "s" : "") + "</span>" +
-          "</div>"
-        );
-      }
-
-      if (render()) {
-        var tid = setInterval(function () {
-          if (!render()) clearInterval(tid);
-        }, 1000);
-      }
-    })();
-  </script>
+  <script src="/countdown.js"></script>
+  <script type="module" src="/runtime.js"></script>
 </body>
 </html>

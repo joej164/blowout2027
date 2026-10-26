@@ -2,3 +2,14 @@
 firebase-debug.log
 firebase-debug.*.log
 .playwright-mcp/
+
+# Encrypted build output — rebuild from source with password
+dist/
+
+# Build manifest — local only, tracks source/output hashes
+.build-manifest.json
+
+# Private content — BACK UP SEPARATELY, not deployed as plaintext
+# These files are your editable source for encrypted content.
+# If lost, encrypted bundles cannot be rebuilt. Keep local backups.
+private/

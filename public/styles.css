@@ -1129,3 +1129,75 @@ main {
   margin-top: 0.5rem;
   font-style: italic;
 }
+
+/* ==== UNLOCK SCREEN ==== */
+
+.unlock-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  position: relative;
+  z-index: 1;
+}
+
+.unlock-box {
+  text-align: center;
+  max-width: 22rem;
+  width: 100%;
+  padding: 2rem;
+  background: var(--navy-light);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+}
+
+.unlock-box h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.unlock-box p {
+  font-size: 0.9rem;
+  color: var(--ice-dim);
+  margin-bottom: 1rem;
+}
+
+.unlock-box input[type="password"] {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 6px;
+  background: var(--navy);
+  color: var(--ice);
+  font-size: 1rem;
+  outline: none;
+}
+
+.unlock-box input[type="password"]:focus {
+  border-color: var(--lime);
+  box-shadow: 0 0 0 2px rgba(180, 240, 48, 0.2);
+}
+
+.unlock-error {
+  color: var(--coral);
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+[hidden] { display: none !important; }
+.lock-button { position: fixed; bottom: 1rem; right: 1rem; z-index: 200; }
+.unlock-box button { margin-top: .75rem; }

@@ -1,80 +1,44 @@
 # Snow Blowout 2027
 
-Annual friends winter getaway site — Sunriver, Oregon. Static HTML/CSS/vanilla JS, no dependencies.
+Static public event site with encrypted private pages. Native Node 24+ and browser Web Crypto; no dependencies, accounts, or backend.
 
-## Pages
+## Privacy boundary
 
-- **Home** (`public/index.html`) — event overview, dates, live countdown, highlights
-- **Lodging Options** (`public/lodging/index.html`) — two rental options with full details, comparison table, guest list, priorities, pending verification
+Any page containing sensitive information belongs in encrypted content. The event home page is public. Lodging HTML, names, assignments, booking details, access codes and map image are local files in ignored `private/`, outside the Hosting output. Never add sensitive information to `public/` or public metadata.
 
-Shared styles: `public/styles.css`
+Edit `private/lodging.html` and `private/lodging-map.png`. **Back up these ignored source files separately**; a fresh Git clone deliberately does not contain them.
 
-## Lodging options overview
+## Build, preview and deploy
 
-| Option | Property | Approx Budget/Person |
-|--------|----------|---------------------|
-| 1 | Todd #1 | ~$300 |
-| 2 | Sparks #5 | ~$350 |
+Run `npm run build`. Enter the shared password at the hidden prompt and confirm it. Rebuilding with a different password changes the password for all protected content. There is no stored password to edit. Do not put passwords in command arguments, shell history, environment variables, source, or Git. Automation may supply a password through stdin from a secure local mechanism; no password is saved by the builder.
 
-Rough planning budgets; final costs depend on insurance, fees, and group size. See `public/lodging/index.html` for sleeping arrangements, property details, and verification items.
-
-## Editing content
-
-### Dates and countdown
-
-The countdown is configured via constants at the bottom of `public/index.html`:
-
-| Constant       | Current value                    | Purpose                          |
-|----------------|----------------------------------|----------------------------------|
-| `EVENT_START`  | `2027-01-14T00:00:00-08:00`     | Pacific midnight, Thu Jan 14     |
-| `EVENT_END`    | `2027-01-19T00:00:00-08:00`     | End of Mon Jan 18 (checkout day) |
-| `LABEL_BEFORE` | `"Until Jan 14 · Pacific time"` | Label shown above countdown      |
-| `MSG_DURING`   | `"Snow Blowout is happening…"`  | Shown during the event           |
-| `MSG_AFTER`    | `"Snow Blowout 2027 is a wrap…"`| Shown after checkout             |
-
-The `<noscript>` block and `.date-banner` show dates without JavaScript.
-
-### Lodging options
-
-Edit `public/lodging/index.html` directly. The page uses full-width `<section class="lodging-section">` blocks instead of narrow cards. Each option is a `.lodging-option` section containing:
-
-- **Option header** (`.option-header`) — photo placeholder + title, tagline, location, listing link
-- **Two-column layout** (`.lodging-two-col`) — property details, pricing, beds on one side; sleeping arrangements on the other
-- **Pros/cons** in a two-column layout
-- **Status bar** (`.option-status`) — quote/booking status and pending items
-
-To update an option: find its `<section>` and edit the budget amount in `.price-box`, stats in `.stat-grid`, sleeping allocations in `.allocation-details`, or pros/cons in `.pro-list` / `.con-list`. The planning budgets are ~$300 for Todd #1 and ~$350 for Sparks #5.
-
-The comparison table and location map appear near the top of the page.
-
-### Location map
-
-The static map is `public/images/lodging-map-two-options.png`, displayed directly below At a Glance. Replace this image to update locations, preserving visible labels and OpenStreetMap attribution. House numbers are highlighted directly on the OpenStreetMap buildings, replacing the inaccurate listing-coordinate pins. Public rental references:
-
-| Property | Source |
-|----------|--------|
-| Sparks #5 | [Bennington Sunriver](https://www.benningtonsunriver.com/properties/sparks-5) |
-| Todd #1 | [Bennington Sunriver](https://www.benningtonsunriver.com/properties/todd-lane-1) |
-| Todd #10 | [Vacasa](https://www.vacasa.com/unit/1015893) |
-| Todd #11 | [Bennington Sunriver](https://www.benningtonsunriver.com/properties/todd-11) |
-
-Map CSS is at the end of `public/styles.css`. The image includes OpenStreetMap attribution; no external map library or runtime tile requests are required.
-
-### Photos
-
-Replace `<span class="card-photo-label">Photo coming soon</span>` inside `.option-photo` with an `<img>` tag when photos are available.
-
-## Local development
-
-Serve the `public/` directory:
-
-```bash
-python3 -m http.server 8000 -d public
+```sh
+npm test
+npm run build
+npm run check
+python3 -m http.server 8000 --bind 127.0.0.1 -d dist
+# Only after reviewing and authorizing publication:
+firebase deploy --only hosting --project blowout2027
 ```
 
-## Firebase Hosting
+Firebase publishes **only `dist/`**. Its predeploy guard rejects missing, stale, modified, unexpected or plaintext output. A failed or cancelled build removes the deployable output. Do not manually copy private files into `dist/` or bypass the guard. Build sources, configuration, private content and outputs are hashed in the ignored local `.build-manifest.json`.
 
-```bash
-firebase emulators:start --only hosting   # local preview
-firebase deploy --only hosting            # production (requires auth)
-```
+## Encryption and unlocking
+
+The bundle contains private HTML and actual image bytes, encrypted together with AES-256-GCM. PBKDF2-SHA-256 uses 600,000 iterations, a fresh random 16-byte salt and a fresh 12-byte IV every build. Metadata contains only the format, salt, iteration count, IV and ciphertext. Image filenames and MIME data are inside the encrypted bundle.
+
+The browser derives a nonextractable key locally, renders only after authenticated decryption, and uses temporary Blob URLs for images. The password never leaves the browser. The key and decrypted bundle stay in memory only: no localStorage, sessionStorage, IndexedDB or cookies. Navigation within the same tab retains the unlock; refresh, Lock and page teardown clear it. Lock invalidates pending unlock attempts and revokes image URLs. JavaScript cannot guarantee physical zeroization of garbage-collected strings.
+
+## Adding sensitive pages or images
+
+Put their source in `private/`. Register page IDs and images in `scripts/config.mjs`, add corresponding generic shells to the explicit public/output allowlists, and register nonsecret routes in `public/site-config.js`. Use `data-private-image="registered-name"` instead of plaintext image URLs. Rebuild; all registered pages/images share the encrypted bundle and password. Keep new routes generic and their metadata free of private details.
+
+Public page content is in `public/index.html`; shared styles are in `public/styles.css`. The public countdown is in `public/countdown.js`. Preserve visible OpenStreetMap attribution when replacing the private map.
+
+## Verification and limits
+
+`npm test` uses temporary project copies and disposable passwords, never the real build/password. It checks the actual builder, correct and incorrect passwords, tampering, fresh salt/IV, image roundtrip, output privacy, stale source checks and deployment guard failures.
+
+A strong, unique shared passphrase matters: downloaded ciphertext allows offline guessing. Password holders can copy decrypted content. This is encryption, not server-side access control, and a compromised hosting origin/browser can capture an entered password.
+
+Older Git commits, Firebase releases, caches and public copies already contain plaintext trip details. Encryption does not erase them. History/release cleanup is separate work and has not been performed. Until an encrypted release is explicitly deployed, the existing live site remains unchanged and public.

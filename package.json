@@ -1,0 +1,10 @@
+{
+  "name": "blowout2027",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check-build.mjs",
+    "test": "node scripts/test.mjs"
+  }
+}

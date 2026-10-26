@@ -1,19 +1,67 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "dist",
     "ignore": [
       ".*",
       "node_modules"
     ],
+    "predeploy": [
+      "node scripts/check-build.mjs"
+    ],
     "headers": [
       {
-        "source": "**/*.html",
+        "source": "**",
         "headers": [
           {
             "key": "Cache-Control",
             "value": "no-cache"
           }
         ]
+      },
+      {
+        "source": "/lodging{,/**}",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-store"
+          },
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex, nofollow"
+          }
+        ]
+      },
+      {
+        "source": "/encrypted-bundle.json",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-store"
+          },
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex"
+          }
+        ]
+      },
+      {
+        "source": "/images/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-store"
+          },
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex"
+          }
+        ]
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/images/lodging-map-two-options.png",
+        "destination": "/lodging/index.html"
       }
     ]
   }
