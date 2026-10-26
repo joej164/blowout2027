@@ -5,7 +5,7 @@ Annual friends winter getaway site — Sunriver, Oregon. Static HTML/CSS/vanilla
 ## Pages
 
 - **Home** (`public/index.html`) — event overview, dates, live countdown, highlights
-- **Lodging Options** (`public/lodging/index.html`) — three rental options with full details, comparison table, guest list, priorities, pending verification
+- **Lodging Options** (`public/lodging/index.html`) — two rental options with full details, comparison table, guest list, priorities, pending verification
 
 Shared styles: `public/styles.css`
 
@@ -15,9 +15,8 @@ Shared styles: `public/styles.css`
 |--------|----------|---------------------|
 | 1 | Todd #1 | ~$300 |
 | 2 | Sparks #5 | ~$350 |
-| 3 | Todd #1 + Todd #9 | Over $400 |
 
-Rough planning budgets; final costs depend on insurance, fees, and cabin occupancy. See `public/lodging/index.html` for sleeping arrangements, property details, and verification items.
+Rough planning budgets; final costs depend on insurance, fees, and group size. See `public/lodging/index.html` for sleeping arrangements, property details, and verification items.
 
 ## Editing content
 
@@ -44,21 +43,18 @@ Edit `public/lodging/index.html` directly. The page uses full-width `<section cl
 - **Pros/cons** in a two-column layout
 - **Status bar** (`.option-status`) — quote/booking status and pending items
 
-To update an option: find its `<section>` and edit the budget amount in `.price-box`, stats in `.stat-grid`, sleeping allocations in `.allocation-details`, or pros/cons in `.pro-list` / `.con-list`. Only three dollar amounts appear on the page: ~$300, ~$350, and over $400.
-
-Option 3 uses separate-cabin cost sharing (each cabin's occupants split their own rent). Update occupant lists and sleeping allocations together when changing assignments.
+To update an option: find its `<section>` and edit the budget amount in `.price-box`, stats in `.stat-grid`, sleeping allocations in `.allocation-details`, or pros/cons in `.pro-list` / `.con-list`. The planning budgets are ~$300 for Todd #1 and ~$350 for Sparks #5.
 
 The comparison table and location map appear near the top of the page.
 
 ### Location map
 
-The static map is `public/images/lodging-map-highlighted.png`, displayed directly below At a Glance. Replace this image to update locations, preserving visible labels and OpenStreetMap attribution. House numbers are highlighted directly on the OpenStreetMap buildings, replacing the inaccurate listing-coordinate pins. Public rental references:
+The static map is `public/images/lodging-map-two-options.png`, displayed directly below At a Glance. Replace this image to update locations, preserving visible labels and OpenStreetMap attribution. House numbers are highlighted directly on the OpenStreetMap buildings, replacing the inaccurate listing-coordinate pins. Public rental references:
 
 | Property | Source |
 |----------|--------|
 | Sparks #5 | [Bennington Sunriver](https://www.benningtonsunriver.com/properties/sparks-5) |
 | Todd #1 | [Bennington Sunriver](https://www.benningtonsunriver.com/properties/todd-lane-1) |
-| Todd #9 | [Sunriver Resort Rentals](https://vacation-rentals.sunriverresort.com/vrp/unit/9_Todd_Lane-661-15) |
 | Todd #10 | [Vacasa](https://www.vacasa.com/unit/1015893) |
 | Todd #11 | [Bennington Sunriver](https://www.benningtonsunriver.com/properties/todd-11) |
 
