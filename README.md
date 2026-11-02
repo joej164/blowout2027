@@ -4,9 +4,9 @@ Static public event site with encrypted private pages. Native Node 24+ and brows
 
 ## Privacy boundary
 
-Any page containing sensitive information belongs in encrypted content. The event home page is public. Lodging HTML, names, assignments, booking details, access codes and map image are local files in ignored `private/`, outside the Hosting output. Never add sensitive information to `public/` or public metadata.
+Any page containing sensitive information belongs in encrypted content. The event home page is public. Lodging HTML, names, assignments, booking details, access codes, map image, meal schedule and dietary details are local files in ignored `private/`, outside the Hosting output. Never add sensitive information to `public/` or public metadata.
 
-Edit `private/lodging.html` and `private/lodging-map.png`. **Back up these ignored source files separately**; a fresh Git clone deliberately does not contain them.
+Edit `private/lodging.html` (Lodging), `private/meals.html` (Meals & Schedule) and `private/lodging-map.png`. `public/lodging/` and `public/meals/` contain only generic locked shells. **Back up these ignored source files separately**; a fresh Git clone deliberately does not contain them.
 
 ## Build, preview and deploy
 
@@ -27,17 +27,17 @@ Firebase publishes **only `dist/`**. Its predeploy guard rejects missing, stale,
 
 The bundle contains private HTML and actual image bytes, encrypted together with AES-256-GCM. PBKDF2-SHA-256 uses 600,000 iterations, a fresh random 16-byte salt and a fresh 12-byte IV every build. Metadata contains only the format, salt, iteration count, IV and ciphertext. Image filenames and MIME data are inside the encrypted bundle.
 
-The browser derives a nonextractable key locally, renders only after authenticated decryption, and uses temporary Blob URLs for images. The password never leaves the browser. The key and decrypted bundle stay in memory only: no localStorage, sessionStorage, IndexedDB or cookies. Navigation within the same tab retains the unlock; refresh, Lock and page teardown clear it. Lock invalidates pending unlock attempts and revokes image URLs. JavaScript cannot guarantee physical zeroization of garbage-collected strings.
+The browser derives a nonextractable key locally, renders only after authenticated decryption, and uses temporary Blob URLs for images. The password never leaves the browser. The key and decrypted bundle stay in memory only: no localStorage, sessionStorage, IndexedDB or cookies. All protected pages share one bundle and password, so unlocking Lodging or Meals & Schedule unlocks both. Navigation within the same tab retains the unlock; refresh, Lock and page teardown clear access to both. Lock invalidates pending unlock attempts and revokes image URLs. JavaScript cannot guarantee physical zeroization of garbage-collected strings.
 
 ## Adding sensitive pages or images
 
-Put their source in `private/`. Register page IDs and images in `scripts/config.mjs`, add corresponding generic shells to the explicit public/output allowlists, and register nonsecret routes in `public/site-config.js`. Use `data-private-image="registered-name"` instead of plaintext image URLs. Rebuild; all registered pages/images share the encrypted bundle and password. Keep new routes generic and their metadata free of private details.
+Put their source in `private/`. Register page IDs and images in `scripts/config.mjs`, add corresponding generic shells to the explicit public/output allowlists, register nonsecret routes, titles and unlock headings in `public/site-config.js`, add nav links to every public page, and add a `no-store`/`noindex` header for the route in `firebase.json`. Use `data-private-image="registered-name"` instead of plaintext image URLs. Rebuild; all registered pages/images share the encrypted bundle and password. Keep new routes generic and their metadata free of private details.
 
 Public page content is in `public/index.html`; shared styles are in `public/styles.css`. The public countdown is in `public/countdown.js`. Preserve visible OpenStreetMap attribution when replacing the private map.
 
 ## Verification and limits
 
-`npm test` uses temporary project copies and disposable passwords, never the real build/password. It checks the actual builder, correct and incorrect passwords, tampering, fresh salt/IV, image roundtrip, output privacy, stale source checks and deployment guard failures.
+`npm test` uses temporary project copies and disposable passwords, never the real build/password. It checks the actual builder, that one password decrypts every protected page from the same bundle, correct and incorrect passwords, tampering, fresh salt/IV, image roundtrip, output privacy, stale source checks and deployment guard failures.
 
 A strong, unique shared passphrase matters: downloaded ciphertext allows offline guessing. Password holders can copy decrypted content. This is encryption, not server-side access control, and a compromised hosting origin/browser can capture an entered password.
 

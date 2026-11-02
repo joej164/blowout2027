@@ -1059,6 +1059,11 @@ main {
     padding: 0.75rem 1rem;
   }
 
+  .site-nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   main {
     padding: 1.5rem 1rem 3rem;
   }
@@ -1128,6 +1133,128 @@ main {
   color: var(--ice-dim);
   margin-top: 0.5rem;
   font-style: italic;
+}
+
+/* ==== MEALS PAGE ==== */
+
+.meal-schedule {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.meal-schedule th,
+.meal-schedule td {
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.meal-schedule thead th {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ice-dim);
+}
+
+.meal-schedule tbody th {
+  width: 7rem;
+  font-weight: 700;
+  color: var(--ice);
+}
+
+.meal-schedule td {
+  color: var(--ice-dim);
+}
+
+.meal-schedule td:nth-child(2) {
+  width: 40%;
+  color: var(--ice);
+}
+
+.meal-schedule .meal-date th {
+  width: auto;
+  padding-top: 2rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  border-bottom: 2px solid var(--lime);
+}
+
+.meal-date .tag {
+  margin-left: 0.5rem;
+}
+
+.meal-links {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+  .meal-schedule thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .meal-schedule tr {
+    display: grid;
+    grid-template-columns: 6rem 1fr;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .meal-schedule th,
+  .meal-schedule td,
+  .meal-schedule td:nth-child(2) {
+    width: auto;
+    padding: 0 0.5rem 0 0;
+    border: 0;
+  }
+
+  .meal-schedule td:nth-child(3) {
+    grid-column: 2;
+    margin-top: 0.2rem;
+    font-size: 0.85rem;
+  }
+
+  .meal-schedule td:empty {
+    display: none;
+  }
+
+  .meal-schedule .meal-date {
+    display: block;
+    padding: 1.75rem 0 0.4rem;
+    border-bottom: 2px solid var(--lime);
+  }
+
+  .meal-schedule .meal-date th {
+    padding: 0;
+    border: 0;
+  }
+
+  .meal-date .tag {
+    display: table;
+    margin: 0.35rem 0 0;
+  }
+}
+
+.lodging-section .disclaimer {
+  margin: 0;
+}
+
+.disclaimer .pref-list {
+  font-size: inherit;
+}
+
+.disclaimer .pref-list li::before {
+  background: var(--coral);
 }
 
 /* ==== UNLOCK SCREEN ==== */

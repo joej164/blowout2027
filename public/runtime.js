@@ -8,9 +8,10 @@ let homeHTML=location.pathname==='/'?main.innerHTML:null;
 let pending=null, viewPrivate=false;
 const normalize=path=>path.endsWith('/index.html')?path.slice(0,-10):path==='/'?'/':path.replace(/\/$/,'')+'/';
 const route=()=>normalize(location.pathname);
-const pageId=path=>protectedRoutes[path];
+const pageId=path=>protectedRoutes[path]?.id;
+const pageTitle=()=>protectedRoutes[route()].title+' — Snow Blowout 2027';
 const unlockHTML=`<div id="unlock-screen" class="unlock-screen"><div class="unlock-box">
-<h1>Lodging Details</h1><p>Enter the shared password to view private trip information.</p>
+<h1></h1><p>Enter the shared password to view private trip information.</p>
 <form id="unlock-form" autocomplete="off"><label for="password-input">Shared password</label>
 <input type="password" id="password-input" autocomplete="off" required>
 <button class="cta" type="submit">Unlock</button></form>
@@ -28,7 +29,8 @@ function navState(){
 }
 function renderLocked(){
   clearInterval(window.__countdownTimer);
-  revokeImages();viewPrivate=false;main.innerHTML=unlockHTML;document.title='Lodging — Snow Blowout 2027';
+  revokeImages();viewPrivate=false;main.innerHTML=unlockHTML;document.title=pageTitle();
+  main.querySelector('h1').textContent=protectedRoutes[route()].heading;
   main.querySelector('form').addEventListener('submit',unlock);
   navState();
 }
@@ -36,7 +38,7 @@ function renderPrivate(){
   const html=bundle?.pages?.[pageId(route())];
   if(typeof html!=='string') {renderLocked();return;}
   clearInterval(window.__countdownTimer);
-  revokeImages();viewPrivate=true;main.innerHTML=html;document.title='Lodging — Snow Blowout 2027';
+  revokeImages();viewPrivate=true;main.innerHTML=html;document.title=pageTitle();
   for(const img of main.querySelectorAll('img[data-private-image]')) {
     const data=bundle.images?.[img.dataset.privateImage];
     if(!data) continue;

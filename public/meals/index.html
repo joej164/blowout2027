@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Meals &amp; Schedule &mdash; Snow Blowout 2027</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="snowfall" aria-hidden="true">
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+    <div class="snowflake"></div>
+  </div>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <a class="brand" href="/">Snow Blowout 2027</a>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/lodging/">Lodging</a></li>
+      <li><a href="/meals/" aria-current="page">Meals &amp; Schedule</a></li>
+    </ul>
+  </nav>
+
+  <main id="main-content">
+    <!-- Unlock screen (shown by default) -->
+    <div id="unlock-screen" class="unlock-screen">
+      <div class="unlock-box">
+        <h1>Meals &amp; Schedule</h1>
+        <p>Enter the shared password to view the meals and schedule.</p>
+        <form id="unlock-form" autocomplete="off">
+          <label for="password-input" class="sr-only">Password</label>
+          <input type="password" id="password-input" placeholder="Password" autocomplete="off" required>
+          <button type="submit" class="cta" style="margin-top:0.75rem; width:100%;">Unlock</button>
+        </form>
+        <p id="unlock-error" class="unlock-error" hidden>Incorrect password. Please try again.</p>
+      </div>
+    </div>
+
+    <!-- Decrypted content inserted here -->
+    <div id="protected-content" hidden></div>
+  </main>
+
+  <footer class="site-footer">
+    Snow Blowout 2027 &mdash; Sunriver, Oregon
+  </footer>
+
+  <script src="/countdown.js"></script>
+  <script type="module" src="/runtime.js"></script>
+</body>
+</html>
